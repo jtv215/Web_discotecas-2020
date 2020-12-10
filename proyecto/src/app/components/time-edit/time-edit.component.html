@@ -1,0 +1,108 @@
+<div id="time-edit" class="center">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <mat-icon>timer</mat-icon> Tiempo de activación!
+            </mat-card-title>
+        </mat-card-header>
+        <p>
+            El tiempo en activarse cada canción, una vez haya terminado de escucharse.
+        </p>
+
+        <mat-card-content>
+            <div *ngIf="alertMessage">
+                <div class="alert alert-info" role="alert">
+                    {{alertMessage}}
+                </div>
+            </div>
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Número</mat-label>
+                    <mat-select #name="ngModel" name="duration" [(ngModel)]="establishment.duration" required>
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">2</mat-option>
+                        <mat-option value="3">3</mat-option>
+                        <mat-option value="4">4</mat-option>
+                        <mat-option value="5">5</mat-option>
+                        <mat-option value="20">20</mat-option>
+                        <mat-option value="30">30</mat-option>
+                        <mat-option value="40">40</mat-option>
+                        <mat-option value="50">50</mat-option>
+                        <mat-option value="90">90</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Tiempo </mat-label>
+                    <mat-select #name="ngModel" name="time" [(ngModel)]="establishment.time" required>
+                        <mat-option value="minutes">Minutos</mat-option>
+                        <mat-option value="hours">Horas</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </form>
+
+            <mat-card-actions>
+                <button mat-raised-button (click)="onSubmit()" color="primary"
+                    [disabled]=!form.form.valid>Guardar</button>
+            </mat-card-actions>
+
+        </mat-card-content>
+    </mat-card>
+
+
+    <mat-card class="mt-4">
+        <mat-card-header>
+            <mat-card-title>
+                <mat-icon>timer</mat-icon>  Tiempo de consumición!
+            </mat-card-title>
+        </mat-card-header>
+        <p>
+            El tiempo que va a tener el cliente en consumir los puntos ofrecidos por el establicimiento.
+        </p>
+
+        <mat-card-content>
+            <div *ngIf="alertMessage">
+                <div class="alert alert-info" role="alert">
+                    {{alertMessage}}
+                </div>
+            </div>
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Número</mat-label>
+                    <mat-select #name="ngModel" name="duration" [(ngModel)]="establishment.duration" required>
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">2</mat-option>
+                        <mat-option value="3">3</mat-option>
+                        <mat-option value="4">4</mat-option>
+                        <mat-option value="6">6</mat-option>
+                        <mat-option value="8">8</mat-option>
+                        <mat-option value="12">12</mat-option>
+                        <mat-option value="24">24</mat-option>
+                        <mat-option value="24">48</mat-option>
+                        <mat-option value="72">72</mat-option>
+                        <mat-option value="168">168</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Tiempo</mat-label>
+                    <mat-select #name="ngModel" name="time" [(ngModel)]="establishment.time" required>
+                        <mat-option value="hours">Horas</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </form>
+
+            <mat-card-actions>
+                <button mat-raised-button (click)="onSubmit()" color="primary"
+                    [disabled]=!form.form.valid>Guardar</button>
+            </mat-card-actions>
+
+        </mat-card-content>
+    </mat-card>
+
+</div>

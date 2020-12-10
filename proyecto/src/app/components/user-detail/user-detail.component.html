@@ -1,0 +1,112 @@
+<!-- BARRA LATERAL -->
+<app-aside-perfil></app-aside-perfil>
+
+<div id="user-detail" class="center">
+    <mat-card>
+        <mat-card-header>
+
+            <mat-card-title>
+                Datos del perfil
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>
+                    <div class="perfil">Nombre: </div>
+                    <div class="perfil-datos" *ngIf="identity.name != 'null'">{{identity.name}}</div>
+                </mat-list-item>
+                <mat-divider> </mat-divider>
+                <mat-list-item>
+                    <div class="perfil">Apellidos: </div>
+                    <div class="perfil-datos" *ngIf="identity.surname != 'null'">{{identity.surname}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+
+                <mat-list-item>
+                    <div class="perfil">Fecha de Nacimiento: </div>
+                    <div class="perfil-datos" *ngIf="identity.birth_date != 'null'">{{identity.birth_date}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+
+                <mat-list-item>
+                    <div class="perfil">Email: </div>
+                    <div class="perfil-datos" *ngIf="identity.email != 'null'">{{identity.email}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+
+                <mat-list-item>
+                    <div class="perfil">Teléfono: </div>
+                    <div class="perfil-datos" *ngIf="identity.phone_user != 'null'">{{identity.phone_user}}</div>
+                </mat-list-item>
+                          
+            </mat-list>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button [routerLink]="'/user-edit'" color="primary">
+                <mat-icon>edit</mat-icon>
+                Editar mi perfil
+            </button>
+        </mat-card-actions>
+    </mat-card>
+    <p></p>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                Datos del establecimiento
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>
+                    <div class="perfil">Nombre del Local: </div>
+                    <div class="perfil-datos" *ngIf="identity.name_establishment != 'null'">
+                        {{identity.name_establishment}}</div>
+                </mat-list-item>
+                <mat-divider> </mat-divider>
+                <mat-list-item>
+                    <div class="perfil">Provincia: </div>
+                    <div class="perfil-datos" *ngIf="identity.provincia != 'null'">{{identity.provincia}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="perfil">Dirección: </div>
+                    <div class="perfil-datos" *ngIf="identity.address != 'null'">{{identity.address}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="perfil">Teléfono: </div>
+                    <div class="perfil-datos" *ngIf="identity.phone_establishment != 'null'">{{identity.phone_establishment}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="perfil">Provincia: </div>
+                    <div class="perfil-datos" *ngIf="identity.provincia != 'null'">{{identity.provincia}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="perfil">Localidad: </div>
+                    <div class="perfil-datos" *ngIf="identity.localidad != 'null'">{{identity.localidad}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="perfil"> codigo postal: </div>
+                    <div class="perfil-datos" *ngIf="identity.cp != 'null'">{{identity.cp}}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="perfil">Información: </div>
+                    <div class="perfil-datos" *ngIf="identity.information != 'null'">{{identity.information}}</div>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button [routerLink]="'/user-edit-establishment'" color="primary">
+                <mat-icon>edit</mat-icon>
+                Editar datos del establecimiento
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>

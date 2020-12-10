@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+    <p>Cambia el nombre:</p>
+    <mat-form-field >
+      <mat-label>Editar lista</mat-label>
+      <input matInput #name="ngModel" name="name" [(ngModel)]="data.name">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial >Modificar</button>
+  </div>

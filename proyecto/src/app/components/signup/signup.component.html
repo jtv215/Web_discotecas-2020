@@ -1,0 +1,59 @@
+<!-- Formulario de registro -->
+
+<div id="signup" class="center-signup">
+
+    <!-- <h2>Comience a disfrutar en segundos.</h2>
+    <p>
+        Primero, cree su cuenta. Y una vez que haya creado su cuenta, 
+        podrás disfrutar de su música favorita en streaming.
+    </p> -->
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                Regístrate
+            </mat-card-title>
+        </mat-card-header>
+
+
+        <mat-card-content>
+            <div *ngIf="errorMessage">
+                <div class="alert alert-info" role="alert">
+                    {{errorMessage}}
+                </div>
+            </div>
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre </mat-label>
+
+                    <input matInput type="text" #name="ngModel" name="name" [(ngModel)]="establishment.name" required>
+                    <mat-error *ngIf="!name.valid && name.touched">El nombre es obligatorio*</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input matInput type="email" #email="ngModel" name="email" [(ngModel)]="establishment.email"
+                        required>
+                    <mat-error pan *ngIf="!email.valid && email.touched">El email es obligatorio*</mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña </mat-label>
+                    <input matInput type="password" #password="ngModel" name="password"
+                        [(ngModel)]="establishment.password" autocomplete="off" required>
+                    <mat-error *ngIf="!password.valid && password.touched">La contraseña es obligatoria*</mat-error>
+                </mat-form-field>
+
+                <mat-checkbox>Acepto los<a [routerLink]="['/terms']" target="_blank">Términos de servicio</a> y la
+                    <a [routerLink]="['/privacy']" target="_blank">Política de privacidad</a>. </mat-checkbox>
+
+            </form>
+
+
+            <mat-card-actions>
+                <button mat-raised-button (click)="onSubmit()" color="primary">Registrarse</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</div>

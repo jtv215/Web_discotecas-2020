@@ -1,0 +1,61 @@
+<div id="song-edit" class="center">
+    <!-- <mat-card class="formUpdateSong-card">   id="wrap-formUpdateSong"-->
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Editar Canción</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form class="example-form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Titulo </mat-label>
+                    <input matInput #title="ngModel" [(ngModel)]="song.title" name="title" [(ngModel)]="song.title"
+                        placeholder="Titulo" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Artista </mat-label>
+                    <input matInput #artista="ngModel" placeholder="artista" type="name" name="artist"
+                        [(ngModel)]="song.artist" placeholder="Artista">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Elige el coste de esta canción en puntos </mat-label>
+
+                    <input matInput #cost_song="ngModel" type="number"  min="0" name="cost_song" [(ngModel)]="song.cost_song"
+                        placeholder="Coste de la canción por puntos">
+                </mat-form-field>
+
+                <div class="form-edit-song">
+                    <div *ngIf="song.image == '' ">
+
+                        <img src="./assets/images/nota.png" style="width: 100px;" />
+                    </div>
+                    <div *ngIf="song.image != '' ">
+
+                        <img src="{{url + 'get-image-song/'+song.image}}" style="width: 100px;" />
+
+                    </div>
+
+                    <label>Selecciona una imagen para la canción: </label>
+                    
+                    <input type="file" accept=".png,.jpg,.jpeg,.gif" placeholder="Subir imagen..."
+                        (change)="fileChangeEvent($event)" />
+                        
+                </div>
+              
+            </form>
+
+        </mat-card-content>
+
+        <mat-card-actions class="form-edit-song-acctions">
+            <button mat-raised-button (click)="comeBack()" color="primary">volver</button>
+            <button mat-raised-button (click)="onSubmit()" color="primary">Guardar cambios</button>
+        </mat-card-actions>
+
+
+
+    </mat-card>
+
+</div>

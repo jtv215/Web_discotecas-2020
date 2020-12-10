@@ -1,0 +1,15 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<form  #form="ngForm">
+  <div mat-dialog-content>
+    <p>¿Cual es el nombre de tu nueva lista?</p>
+    <mat-form-field>
+      <mat-label>Nueva lista</mat-label>
+      <input matInput [(ngModel)]="data.name" name="name" required>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial [disabled]="!form.form.valid">Añadir</button>
+  </div>
+</form>

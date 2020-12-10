@@ -1,0 +1,677 @@
+* {
+  font-size: 14px;
+  --rojo: #e64539;
+  /*usar variables*/
+}
+
+
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+/***signin *****/
+
+#signup  .mat-card-header-text ,
+#signin .mat-card-header-text {
+  margin-left: inherit;
+}
+
+.center-signup,
+.center-signin {
+  margin: auto;
+  width: 450px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+#signup .mat-form-field-wrapper,
+#signin .mat-form-field-wrapper {
+  width: 320px !important;
+}
+
+#signup button,
+#signin button {
+ width: 320px;
+}
+
+#signup .mat-card-actions,
+#signin .mat-card-actions {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#signup .mat-checkbox-label{
+  font-size: 12px;
+}
+
+#signup a{
+  color: black;
+  font-size: 12px;
+  text-decoration: underline;
+
+}
+
+#signin a{
+  color: black;
+  font-size: 14px;
+}
+
+#signin a:hover{
+  color: rgb(75, 74, 74);
+  text-decoration: underline;
+
+}
+#signin label,
+#signup label{
+  font-weight: unset !important;
+}
+
+
+.bg-light {
+  background-color: #7c8f80 !important;
+  height: 50px;
+}
+
+.item1 {
+  background: red;
+}
+
+.item2 {
+  background: green;
+}
+
+/* BARRA MENU SUPERIOR*/
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-menu-panel {
+  /* min-width: 112px; */
+  width: auto !important;
+}
+
+/* MARGEN EN EL PERFIL */
+
+.margen {
+  margin-left: 210px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  height: auto;
+}
+
+.perfil {
+  width: 120px;
+}
+
+.perfil-datos {
+  color: #868484;
+}
+
+/****** list de la play list*****/
+
+#song-add-wrap, #list-wrap {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 100%;
+}
+
+#titulo-list {
+  width: 90%;
+  display: block;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+#titulo-list button {
+  display: block;
+  float: left;
+}
+
+#titulo-list h1 {
+  display: block;
+  margin-left: 160px;
+  font-size: 40px;
+}
+
+.example-card {
+  max-width: 200px;
+}
+
+.example-card img {
+  cursor: pointer;
+}
+
+#list-wrap #card {
+  display: block;
+  float: left;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+#list-wrap .card-title-list {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  list-style: none;
+  color: black;
+  float: left;
+  margin: 0;
+  padding: 9px;
+  cursor: pointer;
+  width: 127px;
+}
+
+#list-wrap mat-card {
+  padding-bottom: 0 !important;
+}
+
+#list-wrap #card-list mat-card-content .title {
+  display: block;
+  float: left;
+  padding-top: 10px;
+}
+
+#list-wrap mat-card-content .buttons {
+  display: block;
+  float: right;
+  padding-bottom: 10px;
+}
+
+/***lista song***/
+
+#filtro-song-list {
+  display: block;
+  width: 100%;
+}
+
+#filtro-song-list .search-div {
+  display: block;
+  float: left;
+}
+
+#filtro-song-list button {
+  display: block;
+  float: right;
+  margin-left: 10px;
+}
+
+#table-song-list {
+  display: block;
+}
+
+#table-song-list img {
+  width: 50px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#menu-playlist span {
+  width: 100%;
+  height: 100%;
+}
+
+mat-row:nth-child(odd){
+  background: #eee;
+}
+ 
+
+mat-row.mat-row.ng-star-inserted{
+  border:0;
+}
+
+
+/*menu para añadir lista */
+
+.mat-menu-panel {
+  max-height: calc(50vh - 29.3px) !important;
+  width: 130px;
+}
+
+/*** editar  una canción*/
+
+#wrap-formUpdateSong {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 50px;
+  margin-top: 30px;
+  margin-bottom: 100%;
+}
+
+.example-full-width {
+  display: block;
+  width: 400px;
+  margin-left: 16px;
+  margin-right: 30px;
+}
+
+.form-edit-song {
+  margin-left: 3px;
+}
+
+.form-edit-song label {
+  margin-top: 10px;
+}
+
+#wrap-formUpdateSong .mat-card>.mat-card-actions:last-child {
+  margin-left: 25%;
+}
+
+#wrap-formUpdateSong .mat-card>.mat-card-actions:last-child {
+  padding-bottom: 10px !important;
+}
+
+.mat-snack-bar-container {
+  background: #2b8d42;
+  color: white;
+}
+
+#card-list-detail {
+  display: block;
+  float: left;
+  margin-right: 20px;
+}
+
+#card-list-detail img {
+  height: 150px;
+  width: 150px;
+}
+
+/*** list donde se muesta las canciones :List-detail*****/
+
+#songs-list-detail {
+  margin-top: 20px;
+  width: 800px;
+  margin-bottom: 20px;
+}
+
+#song-list-detail {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  float: left;
+  width: 800px;
+  border-bottom: 1px solid grey;
+}
+
+#song-list-detail .titulo {
+  display: block;
+  float: left;
+  margin-top: 5px;
+}
+
+#song-list-detail .titulo a {
+  display: block;
+  float: left;
+}
+
+#song-list-detail .titulo h2 {
+  display: block;
+  float: right;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+#song-list-detail .buttons {
+  display: block;
+  float: right;
+  margin-left: 5px;
+}
+
+#titulo-list-detail {
+  display: block;
+  float: left;
+  /* margin-bottom: 5px; */
+}
+
+#titulo-list-detail img {
+  display: block;
+  float: left;
+  margin-top: 0px;
+  margin-left: 2px;
+  margin-right: 5px;
+  width: 30px;
+}
+
+#titulo-list-detail h1 {
+  display: block;
+  float: left;
+  text-transform: uppercase;
+  margin-left: 15px;
+}
+
+
+
+#opcions-list-detail #buttons-list-detail {
+  display: block;
+  float: right;
+  margin-top: -8px;
+  background: #e3e3e38f;
+}
+
+/***reproductor principal*/
+
+.wrap {
+  display: block;
+  float: left;
+}
+
+.reproductor-principal {
+  display: block;
+  float: left;
+  width: 730px;
+}
+
+#player-reproductor {
+  width: 100%;
+  height: 350px;
+}
+
+#box-songs-list {
+  display: block;
+  float: left;
+  /* margin-left: 8px; */
+  border: 1px solid #d7d5d5;
+  border-radius: 5px;
+  /* overflow-y: scroll; */
+  /* height: 500px; */
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#btn-reproducotr {
+  display: block;
+  float: left;
+}
+
+#btn-reproductor .btn-playAll {
+  display: block;
+  float: left;
+}
+
+#btn-reproductor .btn-change {
+  display: block;
+  float: right;
+}
+
+#list-table {
+  margin-top: 5px;
+}
+
+#list-table .item-song {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  float: left;
+  width: 400px;
+}
+
+#list-table #image {
+  display: block;
+  width: 170px;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  position: relative;
+}
+
+#list-table #image:hover {
+  cursor: pointer;
+}
+
+/* #list-table #image #tamanio{  
+  width: 155px;
+ 
+ 
+} */
+
+#list-table #image img {
+  width: 155px;
+  height: 98px;
+}
+
+#list-table #image .numero {
+  position: absolute;
+  top: 74%;
+  left: 7%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+#list-table #image .duration {
+  position: absolute;
+  top: 74%;
+  right: 15%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+#list-table #information {
+  display: block;
+  float: left;
+  width: 200px;
+  position: relative;
+}
+
+#list-table #title {
+  display: block;
+  margin-left: -6px;
+  margin-top: 2px;
+}
+
+#list-table #title:hover {
+  cursor: pointer;
+}
+
+#list-table .titleSong {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  word-break: break-all;
+  margin-right: 10px;
+}
+
+#list-table .artistSong {
+  width: 300px;
+  word-break: break-all;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  color: #5b5757;
+  margin-right: 10px;
+}
+
+#list-table #information .mat-icon {
+  height: 40px;
+}
+
+#list-table #buttons {
+  float: right;
+  position: absolute;
+  top: 0%;
+  right: -15%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/*** change-password**/
+
+.center {
+  margin: auto;
+  width: 700px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+#change-password .mat-card-header-text {
+  margin-left: inherit;
+}
+
+#change-password mat-card-actions {
+  margin: 0;
+  padding: 0;
+}
+
+#change-password .mat-card-content {
+  margin-bottom: 0;
+}
+
+#change-password .mat-form-field-wrapper {
+  width: 370px;
+}
+
+
+#change-password .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+  padding: 0 16px;
+}
+
+.mat-card {
+  padding-left: 50px !important;
+}
+
+/*** soluciona aside-nav-container  yid="container" fullscreen */
+
+#container {
+  top: 64px !important;
+}
+
+@media(max-width: 599px) {
+  #container {
+    top: 56px !important;
+  }
+}
+
+/*** user-detail**/
+
+#user-detail .mat-card>.mat-card-actions:last-child {
+  margin: 0 15px;
+}
+
+#user-detail mat-card-actions, .mat-card-content, .mat-card-subtitle {
+  margin-bottom: 0px !important;
+}
+
+#user-detail .mat-icon {
+  font-size: 21px;
+}
+
+/*** aside-perfil**/
+
+.mat-drawer {
+  position: fixed !important;
+  top: 64px !important;
+}
+
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+}
+
+/***formularios ...**/
+.form-group {
+  margin-bottom: 5px !important;
+}
+
+
+/***user-edit **/
+#user-edit .mat-card-header-text {
+  margin-left: inherit;
+}
+
+#user-edit .mat-form-field-wrapper {
+  width: 370px;
+}
+#user-edit  .mat-card-actions {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+/***time-edit **/
+#time-edit .mat-card-header-text {
+  margin-left: inherit;
+}
+
+#time-edit .mat-form-field-wrapper {
+  width: 150px;
+  margin-right: 20px;
+}
+#time-edit  .mat-card-actions {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/***user-edit-establishment **/
+#user-edit-establishment .mat-card-header-text {
+  margin-left: inherit;
+}
+
+#user-edit-establishment .mat-form-field-wrapper {
+  width: 370px;
+}
+#user-edit-establishment .mat-card-actions {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/***song-edit-establishment **/
+#song-edit .mat-card-header-text {
+  margin-left: inherit;
+}
+
+#song-edit .mat-form-field-wrapper {
+  width: 370px;
+}
+#song-edit .mat-card-actions {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/***song-list **/
+.center-player,
+.center-song-list {
+  margin: auto;
+  width: 1200px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+#song-list .song-list-titulo{
+  font-size: 15px;
+}
+
+
+#song-list .activar{
+  cursor: pointer;
+  background-color: lawngreen;
+
+}
+
+/*** footer*/
+.footer{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: rgb(63, 81, 181);;
+  padding-top: 10px;
+}
+

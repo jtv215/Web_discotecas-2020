@@ -1,0 +1,48 @@
+<div id=list-wrap>
+
+    <div id="titulo-list">
+        <button mat-raised-button (click)="openDialog()">Añadir Lista</button>
+        <h1>Mi PlayList</h1>
+    </div>
+
+    <div *ngIf="alertMessage">
+        <div class="alert alert-info" role="alert">
+            {{alertMessage}}
+        </div>
+    </div>
+
+    <div *ngFor="let list of lists" id="cards-list">
+        <mat-card class="example-card" id="card">
+            <img (click)="goPlay(list)" mat-card-image src="./assets/images/default.jpg">
+            <mat-card-content id="opciones">
+                <div class="title">
+                    <a  (click)="goPlay(list)"class="card-title-list"> {{list.name}}</a>
+
+                </div>
+                <div class="buttons">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialogEdit(list._id)">
+                            <mat-icon>edit</mat-icon>
+                            Editar
+                        </button>
+
+                        <button mat-menu-item (click)="onDelete(list._id)">
+                            <mat-icon>delete_outline</mat-icon>
+                            Borrar
+                        </button>
+                    </mat-menu>
+                </div>
+            </mat-card-content>
+
+
+
+
+        </mat-card>
+
+    </div>
+
+
+</div>

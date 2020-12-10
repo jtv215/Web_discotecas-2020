@@ -1,0 +1,134 @@
+<div id="song-list" class="center-song-list">
+
+  <div class="song-list-titulo">
+    <h1>Mis Canciones</h1>
+  </div>
+
+
+  <div class="idTop" id="filtro-song-list">
+    <div class="search-div">
+      <mat-form-field  class="search-form-field" floatLabel="never" style="width:400px !important">
+        <input matInput [(ngModel)]="searchKey" placeholder="Buscar" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button [routerLink]="['/song-add']" color="primary">
+      <mat-icon>add</mat-icon> Añadir Canción
+    </button>
+
+    <button mat-raised-button (click)="getSongs()" class="btnRight" color="primary" color="accent">
+      <mat-icon>update</mat-icon> Actualizar
+    </button>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="mat-elevation-z8" id="table-song-list">
+    <mat-table [dataSource]="listData" matSort>
+      <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div *ngIf="element.image != '' "> 
+            <img src="{{url + 'get-image-song/' + element.image}}"/>
+          </div>
+         <div *ngIf="element.image == '' "> 
+            <img id="image-logged" src="./assets/images/nota.png" />
+          </div>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.title}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="artist">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Artista</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.artist}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="cost_song">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Coste</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.cost_song}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="total_votes">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>T.votos</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.total_votes}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="total_points">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>T.Puntos</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.total_points}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Duración</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.duration}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="active_song">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Activado</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div *ngIf="element.active_song != 0 " (click)="activeSong(element._id)" class="activar">
+            Activar
+          </div>
+          <div *ngIf="element.active_song == 0 ">
+            Si
+          </div>
+          
+        </mat-cell>
+        <!-- //  {{element.active_song}} -->
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+                   
+          <button mat-icon-button  [routerLink]="['/song-edit',row._id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn" (click)="onDelete(row._id)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        
+
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>playlist_add</mat-icon>
+            <mat-menu #menu="matMenu">
+              <div  id="menu-playlist" *ngFor="let list of lists">
+              <button mat-menu-item (click)="addSongToPlaylist(row._id,list._id)">
+                 {{ list.name }}
+              </button>
+            </div>
+              <!-- <button mat-menu-item  id="menu-playlist" *ngFor="let list of lists">
+                <span (click)="addSongToPlaylist(row._id,list._id)">  {{ list.name }}</span>
+              </button> -->
+            </mat-menu>
+          </button>
+    
+
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          Cargando datos...
+        </mat-footer-cell>
+      </ng-container>
+      <ng-container matColumnDef="noData">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          No hay datos.
+        </mat-footer-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+      <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
+      </mat-footer-row>
+
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+  </div>
+
+
+
+</div>

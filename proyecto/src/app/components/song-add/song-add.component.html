@@ -1,0 +1,29 @@
+<div id="wrap-formUpdateSong">
+    <mat-card class="formUpdateSong-card">
+        <mat-card-header>
+            <mat-card-title>Añadir Canción</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <form class="example-form">
+
+                <label>Sube el fichero</label>
+                <input type="file" accept=".mp3,.mp4,.m4v,.webm.,.ogg" placeholder="Subir fichero..."
+                    (change)="fileChangeEvent($event)" />
+
+
+                <video id="player-reproductor-add" style="display:none;" *ngIf="activeVideo" controls>
+                    <source id="reproductor" src="{{file_path}}" type="audio/mp3">
+                    Your browser does not support HTML5 video.
+                </video>
+
+            </form>
+        </mat-card-content>
+
+        <mat-card-actions class="form-edit-song-acctions">
+            <button mat-raised-button [routerLink]="['/song-list']" color="primary">volver</button>
+            <button mat-raised-button (click)="onSubmit()" color="primary">Subir canción</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>

@@ -1,0 +1,29 @@
+<div id="signin" class="center-signin">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                Recuperar contraseña
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div *ngIf="errorMessage">
+                <div class="alert alert-info" role="alert">
+                    {{errorMessage}}
+                </div>
+            </div>
+            <form #form="ngForm" class="user_login" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input matInput type="email" name="email" placeholder="Email" required />
+                </mat-form-field>
+            </form>
+
+            <mat-card-actions>
+                <button mat-raised-button (click)="onSubmit()" color="primary">Enviar</button>
+            </mat-card-actions>
+
+        </mat-card-content>
+    </mat-card>
+
+</div>

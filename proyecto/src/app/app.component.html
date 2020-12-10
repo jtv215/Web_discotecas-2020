@@ -1,0 +1,108 @@
+<!-- barra principal sin autenticarse -->
+<div *ngIf="!identity">
+    <!-- BARRA MENU SUPERIOR -->
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <!-- parte Izquieda -->
+            <a  [routerLink]="['/']" style="cursor: pointer;">Inicio</a>
+
+            <!-- parte derecha -->
+            <span class="example-spacer"></span>
+            <a [routerLink]="['/entrar']"> Entrar </a>
+            <a [routerLink]="['/registrarse']">Registrarse</a>
+
+        </mat-toolbar-row>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+
+    <app-footer></app-footer>
+</div>
+
+<!-- barra principal estando autenticarse -->
+<div *ngIf="identity">
+
+    <!-- BARRA MENU SUPERIOR -->
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <!-- parte Izquieda -->
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+
+            <a (click)="goReproductor()" style="cursor: pointer;">Inicio</a>
+            <!-- parte derecha -->
+            <span class="example-spacer"></span>
+            <div>
+                {{identity.name}}
+                <!-- <div *ngIf="!identity.image == '' ">
+
+                    <img src="./assets/images/user.png" style="width: 40px;" />
+                </div> -->
+
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item [routerLink]="'/perfil'">
+                        <mat-icon>person</mat-icon>
+                        <span>Mi perfil</span>
+                    </button>
+                    <!-- <button mat-menu-item>
+                        <mat-icon>settings</mat-icon>
+                        <span>Ajustes</span>
+                    </button> -->
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon>input</mat-icon>
+                        <span>Cerrar sesión</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-toolbar-row>
+
+    </mat-toolbar>
+
+
+    <!-- BARRA LATERAL -->
+    <mat-sidenav-container  id="container" fullscreen>
+        <mat-sidenav #sidenav>
+            <mat-nav-list>
+                <a mat-list-item (click)="goReproductor()">
+                    <mat-icon>home</mat-icon> Inicio
+                </a>
+
+                <a mat-list-item [routerLink]="'/song-list'">
+                    <mat-icon>library_music</mat-icon> Mis canciones
+                </a>
+                <a mat-list-item [routerLink]="'/time-edit'">
+                    <mat-icon>timer</mat-icon> Opciones
+                </a>
+                <a mat-list-item [routerLink]="'/list'">
+                    <mat-icon>playlist_play</mat-icon> Play-Lists
+                </a>
+                <a mat-list-item [routerLink]="'/employee-list'">
+                    <mat-icon>supervisor_account</mat-icon> Empleados
+                </a>
+                <hr>
+                <div *ngIf="lists">
+                    <div *ngFor="let list of lists">
+                        <a mat-list-item (click)="goPlay(list)">
+                            {{list.name}}
+                        </a>
+                    </div>
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,119 @@
+<div class="center-player">
+    <!-- <div id=list-wrap> -->
+
+    <div class="clearfix"></div>
+
+    <div class="wrap">
+        <div class="reproductor-principal">
+            <video id="player-reproductor" on-ended="videoEnd()" poster="./assets/images/default.jpg" controls>
+                <source id="source.reproductor" src="" type="audio/mp3">
+                Your browser does not support HTML5 video.
+            </video>
+
+
+            <div id="opcions-list-detail">
+                <div id="titulo-list-detail">
+                    <!-- <div *ngIf="possition!= null">
+                    <h2 id="possition"> {{possition+"."}}</h2>
+                </div> -->
+                    <h2 id="reproductor-title"> {{title}}</h2>
+                    <h3 id="reproductor-artista"></h3>
+                </div>
+
+                <div id="buttons-list-detail" *ngIf="this.mode==1">
+
+                    <button mat-icon-button (click)="volumeDonwn()">
+                        <mat-icon>volume_down</mat-icon>
+                    </button>
+                    <!-- <button mat-icon-button (click)="turnBack()">
+                        <mat-icon>replay_30</mat-icon>
+                    </button> -->
+                    <button mat-icon-button (click)="backSong()">
+                        <mat-icon>skip_previous</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="pause()">
+                        <mat-icon>pause</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="playReproducir()">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+
+                    <button mat-icon-button (click)="nextSong()">
+                        <mat-icon>skip_next</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="box-songs-list">
+            <div id="btn-reproductor">
+                <button class="btn-playAll" mat-raised-button (click)="playAll()" color="primary">
+                    Reproducir Todo
+                </button>
+                <button class="btn-change" mat-raised-button (click)="modoVotar()" color="warn">
+                    Formato Votar
+                </button>
+                <button class="btn-change m-r-2" mat-raised-button (click)="resetSongs()" color="accent">
+                     Reset canción
+                </button>
+            </div>
+            <div *ngFor="let song of listSong; let i = index;" id="list-table">
+                <div class="item-song" id="{{'wave'+i}}">
+
+                    <div id="image" (click)="selectSong(song)">
+                        <div *ngIf="song.song.image  != '' ">
+                            <img src="{{url + 'get-image-song/' + song.song.image}}" />
+                        </div>
+                        <div id="tamanio" *ngIf="song.song.image == '' ">
+                            <img id="image-logged" src="./assets/images/nota.png" />
+                        </div>
+                        <div class="icon">
+                            <span class="numero"  *ngIf="this.mode==1">{{i+1}}</span>
+                            <span class="numero" *ngIf="this.mode==2"> {{song.song.total_points}}</span>
+                            <span class="duration" (click)="selectSong(song)"> {{song.song.duration}} </span>
+                        </div>
+                    </div>
+
+
+                    <div id="information">
+                        <div id="title">
+                            <span class="titleSong" (click)="selectSong(song)"> {{song.song.title}} </span>
+                            <div class="clearfix"></div>
+                            <span class="artistSong" (click)="selectSong(song)"> {{song.song.title}} </span>
+
+                        </div>
+
+                        <div id="buttons" *ngIf="showOption">
+                            
+                            <button mat-icon-button [matMenuTriggerFor]="menu"
+                                aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item [routerLink]="['/song-edit',song.song._id]">
+                                    <mat-icon>edit</mat-icon>
+                                    Editar
+                                </button>
+
+                                <button mat-menu-item (click)="onDelete(song._id)">
+                                    <mat-icon>delete_outline</mat-icon>
+                                    Borrar
+                                </button>
+                            </mat-menu>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
